@@ -1,5 +1,5 @@
 // BookMark.w - SillyTavern Extension
-import { saveSettingsDebounced } from '../../../../script.js';
+import { saveSettingsDebounced, toastr } from '../../../../script.js';
 import { extension_settings } from '../../../extensions.js';
 
 const EXT = 'bookmark-w';
@@ -310,7 +310,7 @@ if (
             files:[file],
             title:'Bookmark'
         });
-        toastr.success('🔖 저장 완료!');
+        window.toastr?.success('🔖 저장 완료!');
         return;
     } catch(e) {
         if(e.name === 'AbortError') return;
