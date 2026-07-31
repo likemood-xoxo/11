@@ -538,12 +538,7 @@ function drawContent(ctx,W,H,PAD,lh,pg,paras,charName,bodyFont,metaFont,tc,align
     const paraLines=paras.map(p=>wrapText(ctx,p,W-PAD*2));
     let totH=0; paraLines.forEach((l,i)=>{ totH+=l.length*lh; if(i<paraLines.length-1)totH+=pg; });
     const contentTop = TOP_FIXED;
-const contentBottom = H - BOTTOM_FIXED;
-
-let curY = contentTop + Math.max(
-    0,
-    (contentBottom - contentTop - totH) / 2
-);
+let curY = contentTop;
 
     const tx=align==='left'?PAD+8:align==='right'?W-PAD-8:W/2;
     ctx.textAlign=align==='left'?'left':align==='right'?'right':'center';
